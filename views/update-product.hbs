@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="jumbotron">
+    <h3>Update product</h3>
+
+    {{msg}}
+<form action='/updateproductAction'method="post" enctype="multipart/form-data">
+<div class="form-group">
+<label for="pname">Product Name:</label>
+<input type="text" class="form-control" id="pname" name="pname" value='{{data.pname}}'>
+<input type="hidden" value='{{data._id}}'  name="pid" />
+</div>
+<div class="form-group">
+<label for="category">Category:</label>
+<select class="form-control" name="category" value='{{data.category}}'>
+  <option selected disabled>--Select--</option>
+  <option>Ready to eat</option>
+  <option>Ready to cook</option>
+  <option>Ready to Drink</option>
+  <option>Ready to Use</option>
+</select>
+</div>
+<div class="form-group">
+<label for="image">Image:</label>
+<input type="file" class="form-control" id="file"  name="imagename" >
+</div>
+<div>
+  <img  src="/{{data.Imagename}}"  height="40" width=50 />
+</div>
+<div class="form-group">
+<label for="price">Price:</label>
+<input type="text" class="form-control" id="price"  name="price" value='{{data.price}}'>
+</div>
+<div class="form-group">
+<label for="quantity">Quantity:</label>
+<input type="number" class="form-control" id="quantity"  name="quantity" value='{{data.quantity}}'>
+</div>
+<div class="form-group">
+  <label for="description">Description:</label>
+  <textarea class="form-control" name="description">{{data.Description}}</textarea>
+</div>
+
+
+<button type="submit" class="btn btn-primary">Update Product</button>
+</form>
+</div>

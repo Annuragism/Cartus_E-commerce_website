@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cart us..!!!</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+
+    <div class="container">
+    </div>
+    <div class="container">
+<div class="jumbotron"><h2>Sub-Admin Details</h2>{{msg}}</div>
+
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email id</th>
+            <th>Passwords</th>
+            <th>Mobile number</th>
+            <th>Created Date</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{# each data}}
+            <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.emailid}}</td>
+            <td>{{this.password}}</td>
+            <td>{{this.mobile}}</td>
+            <td>{{this.created_date}}</td>
+            <td><a href="/del-subadmin?mno={{this.mobile}}" onclick="return confirm('Do you really want ot delete the record?')"><span  class="fa fa-trash" aria-hidden="true"></span></a></td>
+            <td><a href="/updatesubadmin?pid={{this._id}}" <span class="fa fa-pencil" aria-hidden="true"></span></a></td>
+
+          </tr>
+              {{/each}}
+        </tbody>
+      </table>
+
+
+
+    </div>

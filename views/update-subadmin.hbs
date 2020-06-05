@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cart us..!!!</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+    <div class="container">
+
+      <div class="jumbotron">
+        <h3>Update Sub-Admin</h3>
+        {{msg}}
+        <form action='/upadate-subadmin-action' method="post">
+          <div class="form-group">
+            <label for="eid">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="{{data.name}}">
+          </div>
+          <div class="form-group">
+            <label for="eid">Email Id:</label>
+            <input type="text" class="form-control" id="email" placeholder="Enter email id" name="email" value="{{data.emailid}}">
+            <input type="hidden" value="{{data._id}} " name="pid"/>
+          </div>
+          <div id="msg"></div>
+          <div class="form-group">
+            <label for="eid">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" value="{{data.password}}">
+          </div>
+          <div class="form-group">
+            <label for="ename">Mobile Number:</label>
+            <input type="number" class="form-control" id="mno" placeholder="Enter mobile number" name="mno" value="{{data.mobile}}">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Update Sub-Admin</button>
+        </form>
+    </div>
+    </div>
+  </body>
+  </html>

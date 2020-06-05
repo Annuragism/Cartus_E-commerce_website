@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Product Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+  background-color: #92a8d1;
+  }
+
+  </style>
+</head>
+<body>
+
+
+    <div class="container">
+      <div class="jumbotron">
+      <img height="60" width="50"src="https://www.logolynx.com/images/logolynx/ad/ade3720be55203c006ecb3186275d9a5.png"><h2>My Profile</h2>
+      </div>
+      <table class="table table-hover">
+        {{#each data}}
+
+
+                  <tr><th scope="col">Name</th><td>{{this.name}}</td></tr>
+                  <tr><th scope="col"> Email id </th><td>{{this.emailid}}</td></tr>
+                  <tr><th scope="col"> Password </th><td>{{this.password}}</td></tr>
+                  <tr><th scope="col"> Mobile Number </th><td>{{this.mobile}}</td></tr>
+                  <tr><th scope="col"> Address </th><td>{{this.address}}</td></tr>
+
+
+{{/each}}
+</table>
+<a href="/update-customer" class="btn btn-info">Update Information</a>
+</div>
+</body>
+</html>

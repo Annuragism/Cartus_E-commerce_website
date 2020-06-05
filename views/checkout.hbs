@@ -1,0 +1,78 @@
+{{#if msg}}<div class="card bg-danger text-white"><div class="card-body">{{msg}}</div></div>{{/if}}
+<!-- <div class="card bg-danger text-white"><div class="card-body">{{cart}}</div></div>
+<div class="card bg-danger text-white"><div class="card-body">{{cust_data}}</div></div> -->
+{{#if pcode}}<div class="card bg-success text-white"><div class="card-body">Hurayyyyyy..!!!! Promo Code of ₹{{pcode}} Applied</div></div>{{/if}}
+
+    <div class="container">
+
+      <div class="jumbotron">
+<h3 style="text-align:center;">Checkout Details</h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Imagename</th>
+              <th>Product name</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {{# each cart}}
+            {{#each pro}}
+              <tr>
+                <td><img src="/{{this.Imagename}}" width="50px" height="50px"></td>
+                <td>{{this.pname}}</td>
+                <td id="price">₹{{this.price}}</td>
+             {{/each}}
+             <td id="quantity">{{this.quantity}}</td>
+             <td>{{this.fprice}}</td>
+             {{/each}}
+            </tr>
+
+          </tbody>
+        </table>
+        <div style="margin-left:320px;">
+          <h3>Grand Total:-<strike>₹{{gTotalold}}</strike><br>Now:-₹{{gTotalnew}}</h3>
+        </div>
+    </div>
+
+
+   <div class="checkout">
+
+     <div class="billing-deatils">
+       <h3>Billing Details</h3>
+       {{#each cust_data}}
+       <div class="form-group">
+         <label for="name">Name:</label>
+         <input type="text" class="form-control" id="name" name="name" value="{{this.name}}" readonly>
+       </div>
+       <div class="form-group">
+         <label for="mobile">Contact Number:</label>
+         <input type="text" class="form-control" id="mno"  name="mno" value="{{this.mobile}}" readonly>
+       </div>
+       <div class="form-group">
+         <label for="ename">Address:</label>
+         <input type="text" class="form-control" id="address"  name="address" value="{{this.address}}">
+       </div>
+
+       {{/each}}
+     </div>
+    </div>
+    <form action="/pay" method="post">
+    <script src="https://checkout.stripe.com/checkout.js"
+    class="stripe-button"
+    data-key="pk_test_fXE7zaBNtd6170APadGYsECE00TB6URIar"
+    data-name="CART US..!!!"
+    data-description="Make payments to your items"
+    data-locale="auto"
+    data-currency="inr"
+    >
+    </script>
+    <input type="hidden" name="amount" value="{{gTotalnew}}" />
+    <lable>Payment of ₹:</label>
+      <input type="text" name="name" class="form-control"value="{{gTotalnew}}" readonly />
+
+
+    </form>

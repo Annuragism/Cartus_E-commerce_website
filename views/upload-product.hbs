@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Product Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+
+    <div class="container">
+      <div class="jumbotron">
+        <h3>Upload new product</h3>
+        {{msg}}
+  <form action='/fileupload'method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="pname">Product Name:</label>
+    <input type="text" class="form-control" id="pname" name="pname">
+  </div>
+  <div class="form-group">
+    <label for="category">Category:</label>
+    <select class="form-control" name="category">
+      <option>Ready to eat</option>
+      <option>Ready to cook</option>
+      <option>Ready to Drink</option>
+      <option>Ready to Use</option>
+    </select>
+    </div>
+  <div class="form-group">
+    <label for="image">Image:</label>
+    <input type="file" class="form-control" id="file"  name="imagename">
+  </div>
+  <div class="form-group">
+    <label for="price">Price:</label>
+    <input type="number" class="form-control" id="price"  name="price">
+  </div>
+  <div class="form-group">
+    <label for="quantity">Quantity:</label>
+    <input type="number" class="form-control" id="quantity"  name="quantity">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <textarea class="form-control" name="description"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Upload Product</button>
+</form>
+</div>
+</body>
+</html>

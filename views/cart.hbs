@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Customer cart details</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<script>
+    var price = document.getElementById("price");
+    var quantity = document.getElementById("quantity");
+    var total=price*quantity;
+
+</script>
+<body>
+    <div class="container">
+
+      <div class="jumbotron"><h2>My Cart Details</h2><br><h3>{{msg}}</h3>
+      <h5>Total {{cart.length}} items in my cart</h5>
+      <a href="/empty-my-cart" style="float:right;"><button class="btn btn-info">Empty My Cart</button></a>
+      <a href="/my-order" style="padding-right: 12px;float:right;"><button class="btn btn-info">My order</button></a>
+    </div>
+
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Imagename</th>
+            <th>Product name</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th></th>
+            <th>Delete</th>
+            <th>Total</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {{# each cart}}
+          {{#each pro}}
+            <tr>
+              <td><img src="/{{this.Imagename}}" width="50px" height="50px"></td>
+              <td>{{this.pname}}</td>
+              <td id="price">{{this.price}}</td>
+           {{/each}}
+           <td id="quantity">{{this.quantity}}</td>
+           <td></td>
+           <td><a href="/delcart?pid={{this.pid}}" onclick="return confirm('Do you really want ot delete the record?')"><span  class="fa fa-trash" aria-hidden="true"></span></a></td>
+           <td>{{this.fprice}}</td>
+           {{/each}}
+          </tr>
+
+        </tbody>
+      </table>
+      <form action="/checkout" method="post">
+      <div class="form-group">
+        <label for="name"><b> Have Promo Code:</b></label>
+        <input type="text" class="form-control" id="pcode" name="pcode">
+      </div>
+      <div >
+        <h3>Grand Total:-{{gTotal}}</h3>
+        <button class="btn btn-danger btn-lg" type="submit">Check Out</button>
+      </div>
+</form>
+    </div>

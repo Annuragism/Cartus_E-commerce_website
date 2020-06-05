@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Product Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+
+    <div class="container">
+
+      <div class="jumbotron">
+        <h3>Product  Details</h3><br>
+        {{#if msg}}
+       <div class="card bg-info text-white">
+       <div class="card-body">{{msg}}</div>
+     </div>
+     {{/if}}
+      </div>
+      <div class="container">
+        <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Product Image</th>
+      <th>Product Name</th>
+      <th>Category</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Upload Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{# each data}}
+      <tr>
+      <td><img src="/{{this.Imagename}}" width="50px" height="50px"></td>
+      <td>{{this.pname}}</td>
+      <td>{{this.category}}</td>
+      <td>₹{{this.price}}</td>
+      <td>{{this.Description}}</td>
+      <td>{{this.uploaded_date}}</td>
+      <td><a href="/uppro?pid={{this._id}}" <span class="fa fa-pencil" aria-hidden="true"></span></a></td>
+
+
+    </tr>
+        {{/each}}
+  </tbody>
+</table>
+</div>
+</body>
+</html>

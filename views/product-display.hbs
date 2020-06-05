@@ -1,0 +1,44 @@
+{{#if msg}}
+<div class="card bg-info text-white">
+<div class="card-body">{{msg}}</div>
+</div>
+{{/if}}
+<div class="jumbotron">
+  <h2>{{data.pname}}</h2>
+
+
+
+
+  <div class="row" align="center">
+
+      <div class="col-lg-10">
+          <figure class="card card-product">
+              <div class="img-wrap mt-2 ml-2"><img src="{{data.Imagename}}" width="250" height="200"></div>
+
+              <figcaption class="info-wrap">
+                      <h5 class="title ml-1">{{data.pname}}</h5>
+                        <p>Description:&nbsp;{{data.Description}}</p>
+
+                  <p class="desc text-muted ml-1">Category:{{data.category}}</p>
+              </figcaption>
+              <div class="price-wrap h5">
+                  <span class="ml-1">₹{{data.price}}</span>
+              </div>
+              <div class="bottom-wrap">
+                  <form action="/add-to-cart" method="POST">
+                      <span class="text-muted">Quantity:</span>
+                      <input type="number" name="quantity" min="1" max="20" value="1">
+                      <input type="hidden"  name="pid" value="{{data._id}}">&nbsp;&nbsp;<input type="submit" value="Add to cart" class=" btn btn-sm btn-primary ">
+                       <br><span>Total quantity in stock:{{data.quantity}}</span>
+
+                  </form>
+                  <br>
+
+              </div> <!-- bottom-wrap.// -->
+
+          </figure>
+
+      </div> <!-- col // -->
+
+
+</div>

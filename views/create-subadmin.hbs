@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cart us..!!!</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+     $(document).ready(function(){
+
+         $('#email').blur(function(){
+
+
+         var cemail=$('#email').val();
+
+         //AJAX code
+         var mydata='cemail='+cemail;
+         $.ajax({
+           url:'check-subadmin',
+           data:mydata,
+           type:'get',
+           success:function(response){
+             if(response.msg.indexOf('Already Exist')!=-1)
+          {
+               $('#email').val('');
+               $('#msg').css({'color':'red'})
+           }
+            else{
+              $('#msg').css({'color':'green'})
+                }
+           $('#msg').html(response.msg);
+         }
+         })//ajax end
+       });
+     });
+  </script>
+</head>
+<body>
+
+
+    <div class="container">
+
+      <div class="jumbotron">
+        <h3>Create Sub-Admin</h3>
+        <a href="/show-subadmin" class="btn btn-info" role="button">Show all Sub-Admins</a>
+        <a href="/update-subadmin" class="btn btn-info" role="button">Update SubAdmin</a>
+        <a href="/delete-subadmin" class="btn btn-info" role="button">Delete SubAdmin</a>
+
+        <form action='/create-subadmin'method="post">
+          <div class="form-group">
+            <label for="eid">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+          </div>
+          <div class="form-group">
+            <label for="eid">Email Id:</label>
+            <input type="text" class="form-control" id="email" placeholder="Enter email id" name="email">
+          </div>
+          <div id="msg"></div>
+          <div class="form-group">
+            <label for="eid">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+          </div>
+          <div class="form-group">
+            <label for="ename">Mobile Number:</label>
+            <input type="number" class="form-control" id="mno" placeholder="Enter mobile number" name="mno">
+          </div>
+
+          <button type="submit" class="btn btn-primary">create Sub-Admin</button>
+        </form>
+    </div>
+    </div>
+  </body>
+  </html>
